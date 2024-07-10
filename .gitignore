@@ -2,15 +2,12 @@
 
 # dependencies
 /node_modules
-/src/app/api
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 .env
 # testing
 /coverage
-/model
-/utils
 # next.js
 /.next/
 /out/
