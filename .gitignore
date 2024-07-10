@@ -9,7 +9,8 @@
 .env
 # testing
 /coverage
-
+/model
+/utils
 # next.js
 /.next/
 /out/
