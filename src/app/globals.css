@@ -1,33 +1,125 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Playwrite IT Moderna", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    display: block;
+    margin: 0%;
+    padding: 0%;
+    background-color: #113b5d;
+
+    color: wheat;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+    width: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: #c7b5b5 #8f5e5e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c06969;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+#resume {
+    border-top-left-radius: 10px;
+    text-align: center;
+    transition: all 0.7s;
+}
+
+#resume:hover {
+    width: 250px;
+    background-color: chartreuse;
+    border: none;
+    color: black;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+#skills .p1:hover {
+    transition: all 0.5s;
+    border-top-right-radius: 40%;
+    cursor: pointer;
+    rotate: 5deg;
+}
+
+#db-button {
+    animation: updown 2s ease-in-out infinite;
+}
+
+@keyframes updown {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.loading-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+}
+
+.rect {
+    width: 10px;
+    height: 100%;
+    background-color: #3498db;
+    animation: loading 1.2s infinite ease-in-out;
+}
+
+.rect1 {
+    animation-delay: -1.2s;
+}
+
+.rect2 {
+    animation-delay: -1.0s;
+}
+
+.rect3 {
+    animation-delay: -0.8s;
+}
+
+.rect4 {
+    animation-delay: -0.6s;
+}
+
+.rect5 {
+    animation-delay: -0.4s;
+}
+
+@keyframes loading {
+
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
 }
