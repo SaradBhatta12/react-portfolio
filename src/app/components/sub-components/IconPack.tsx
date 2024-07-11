@@ -7,7 +7,7 @@ import Link from "next/link";
 const IconPack = () => {
   return (
     <div className="iconpack flex flex-col w-[40px] fixed  items-center left-0 bottom-4 z-20 opacity-50">
-      <div className="flex gap-5 text-[1.3rem] flex-col items-center">
+      <div className="flex gap-5 text-[1rem] flex-col items-center">
         <Link href={""} className=" text-cyan-300 no-underline">
           {" "}
           <BsGithub />
@@ -25,7 +25,7 @@ const IconPack = () => {
           <FaTwitter />
         </Link>
       </div>
-      <div className="border-bottom h-[10rem] bg-cyan-300 w-1 mt-4"></div>
+      <div className="border-bottom h-[10rem] bg-cyan-300 w-[3px] mt-4"></div>
     </div>
   );
 };

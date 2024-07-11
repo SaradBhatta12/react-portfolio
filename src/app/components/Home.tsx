@@ -17,12 +17,12 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="h-full w-full flex justify-center items-center flex-col gap-20">
-      <div className="home sm:mr-[20px] flex justify-center flex-col xs:text-center xs:items-center md:ml-9 lg:ml-9 xl:ml-9">
+    <div className="h-full flex justify-center items-center flex-col gap-20">
+      <div className="home  w-[80%] sm:mr-[20px] flex justify-center flex-col xs:text-center xs:items-center md:ml-9 lg:ml-9 xl:ml-9">
         <p className="intro-s text-[17px]">My name is</p>
-        <h1 className="name-prof text-7xl text-blue-400 sm:text-5xl">
+        <h1 className="name-prof text-5xl text-blue-400 sm:text-3xl xs:text-2xl">
           Sarad Bhatta. <br />
-          <span className="text-blue-300 flex gap-3 p-2">
+          <span className="text-blue-300 flex xs:w-full xs:justify-center gap-3 p-2 xs:text-2xl sm:text:3xl">
             {" "}
             I am
             <Typewriter
@@ -40,11 +40,9 @@ const Home: React.FC = () => {
           </span>
         </h1>
         <p className="desc-d text-[20px] text-blue-500 mt-1 xs:p-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima soluta
-          quia nam explicabo iste? <br /> Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Nisi soluta quod quasi earum distinctio sequi at{" "}
-          <br />
-          perspiciatis ab ipsam repudiandae!
+          I am a passionate and results-oriented engineer. Knowledge of
+          programming languages with their technology and operations related to
+          the computer.
         </p>
         <button
           id="resume"
@@ -58,7 +56,7 @@ const Home: React.FC = () => {
         id="db-button"
         onClick={handleScroll}
       >
-        <MdOutlineKeyboardDoubleArrowDown />
+        {/* <MdOutlineKeyboardDoubleArrowDown /> */}
       </div>
     </div>
   );

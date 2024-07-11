@@ -4,6 +4,8 @@ import GmailPack from "./components/sub-components/GmailPack";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import NextTopLoader from "nextjs-toploader";
+import Cursor from "./components/sub-components/Cursor";
+import Copyright from "./components/sub-components/Copyright";
 
 export const metadata: Metadata = {
   title: "portfolio --sarad",
@@ -18,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {/* <Cursor /> */}
         <NextTopLoader color="white" />
         <Navbar />
         {children}
         <IconPack />
         <GmailPack />
+        <Copyright />
       </body>
     </html>
   );

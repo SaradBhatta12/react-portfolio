@@ -1,37 +1,64 @@
+"use client";
 import React from "react";
+import project from "./project.json";
 
-const page: React.FC = () => {
+interface ProjectData {
+  imageUrl: string;
+  title: string;
+  description: string;
+  live: string;
+  github: string;
+}
+
+const Page: React.FC = () => {
   return (
     <div className="mt-[80px] p-8">
       <div className="flex items-center justify-center gap-4 flex-wrap">
-        <Card />
+        {project.projects.map((proj: ProjectData) => {
+          return (
+            <Card
+              key={Math.floor(Math.random() * 1000000)} // Use a more realistic key generation logic
+              imageUrl={proj.imageUrl}
+              title={proj.title}
+              description={proj.description}
+              live={proj.live}
+              github={proj.github}
+            />
+          );
+        })}
       </div>
     </div>
   );
 };
 
-const Card = () => {
-  let imageUrl =
-    "https://th.bing.com/th/id/R.c47bc32645b61bccbd05d2d8af5c54ec?rik=WIk8upr%2f%2b1kX6w&pid=ImgRaw&r=0";
-  let title = "sarad's to do app";
-  let description =
-    "this is a to do app make a card with tailwind with smooth animation which contains image, title ,description and two buttons";
+const Card: React.FC<ProjectData> = (props) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg hover:border hover:cursor-pointer hover:border-white transition-all">
-      <img className="w-full" src={imageUrl} alt={title} />
+      <img className="w-full" src={props.imageUrl} alt={props.title} />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <p className="text-gray-200 text-base">{description}</p>
+        <div className="font-bold text-xl mb-2">{props.title}</div>
+        <p className="text-gray-200 text-base">{props.description}</p>
       </div>
       <div className="px-6 py-4">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-          Button 1
+        <button
+          onClick={() => {
+            location.href = props.live;
+          }}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+        >
+          Live View
         </button>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-          Button 2
+        <button
+          onClick={() => {
+            location.href = props.github;
+          }}
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Github
         </button>
       </div>
     </div>
   );
 };
-export default page;
+
+export default Page;

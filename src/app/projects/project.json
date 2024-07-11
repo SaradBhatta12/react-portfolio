@@ -1,0 +1,39 @@
+{
+    "projects": [
+        {
+            "imageUrl": "https://via.placeholder.com/300x200?text=Weather+App",
+            "title": "Full-Stack Weather App",
+            "description": "Dynamic weather app with animations, React Icons, Axios for API fetching, and optimized state management.",
+            "live": "www.google.com",
+            "github": "https://github.com/SaradBhatta12"
+        },
+        {
+            "imageUrl": "https://via.placeholder.com/300x200?text=Todo+App",
+            "title": "Full-Stack Todo App",
+            "description": "Full-stack todo app using Node.js, Express, and EJS. Offers efficient task management with dynamic rendering.",
+            "live": "www.google.com",
+            "github": "https://github.com/SaradBhatta12"
+        },
+        {
+            "imageUrl": "https://via.placeholder.com/300x200?text=Blog+App",
+            "title": "Full-Stack Blog App",
+            "description": "Full-stack Next.js blog app for easy sharing of daily life anecdotes. Create, edit, and delete posts seamlessly.",
+            "live": "www.google.com",
+            "github": "https://github.com/SaradBhatta12"
+        },
+        {
+            "imageUrl": "https://via.placeholder.com/300x200?text=To+Do+App",
+            "title": "Sarad's To Do App",
+            "description": "A To-Do app with Tailwind CSS, featuring smooth animations, image, title, description, and two functional buttons.",
+            "live": "www.google.com",
+            "github": "https://github.com/SaradBhatta12"
+        },
+        {
+            "imageUrl": "https://via.placeholder.com/300x200?text=College+Site",
+            "title": "College Site",
+            "description": "College site providing course details, faculty information, and event updates. Developed with a responsive design.",
+            "live": "www.google.com",
+            "github": "https://github.com/SaradBhatta12"
+        }
+    ]
+}

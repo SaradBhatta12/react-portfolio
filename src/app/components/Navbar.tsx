@@ -82,7 +82,12 @@ const Navbar: React.FC = () => {
     <>
       <div className="fixed left-0 top-0 flex justify-between items-center w-full h-[70px] p-4">
         <div className="logo">
-          <AiOutlineDollar className="text-5xl font-extrabold text-blue-300" />
+          <AiOutlineDollar
+            className="text-5xl font-extrabold text-blue-300 cursor-pointer "
+            onClick={() => {
+              location.href = "/";
+            }}
+          />
         </div>
         <div className="Menu" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? (

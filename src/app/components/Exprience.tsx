@@ -17,19 +17,19 @@ const Experience: React.FC = () => {
   const experiences = [
     {
       company: "Sofsee Tech.",
-      jobTitle: "Web Developer",
-      duration: "2024 January - Present",
+      jobTitle: "Web Developer Intern",
+      duration: "2024 January - 2024 May",
       tasks: [
-        "Worked on Frontend technology while implementing the UI. Implemented website design and enhanced interactivity.",
-        "Conducted testing tasks to ensure website functionality and quality. Created and implemented API calls.",
+        "Enhanced my front-end development skills by creating responsive and user-friendly web pages with HTML, CSS, and JavaScript.",
+        "Gained valuable experience developing and maintaining a variety of websites using the MERN stack (MongoDB,Express, React, Node.js).",
+        "Contributed to the development of interactive features using JavaScript frameworks like React and animation library like GSAP",
       ],
     },
     {
       company: "NeemInfotech.",
-      jobTitle: "Software Engineer",
-      duration: "2022 March - 2023 December",
+      jobTitle: "Frontend Developer",
+      duration: "2024 May - 2024 Present",
       tasks: [
-        "Developed backend services and integrated them with frontend components.",
         "Optimized application performance and collaborated with cross-functional teams.",
       ],
     },

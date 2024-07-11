@@ -15,43 +15,43 @@ import { TbBrandOffice } from "react-icons/tb";
 const Skills: React.FC = () => {
   return (
     <div
-      className="flex justify-center items-center gap-4 flex-wrap opacity-70"
+      className="flex justify-center items-center gap-4 flex-wrap opacity-70 p-10 sm:p-2 w-[90%]"
       id="skills"
     >
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <BiLogoReact />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <RiNextjsLine />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <SiExpress />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <FaHtml5 />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <FaCss3Alt />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <TbBrandJavascript />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <RiTailwindCssFill />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <BsBootstrap />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <DiMongodb />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <SiMui />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <BsGithub />
       </div>
-      <div className="p1 border border-blue-400 rounded text-[7rem] p-5">
+      <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">
         <TbBrandOffice />
       </div>
     </div>
