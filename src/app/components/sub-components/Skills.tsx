@@ -15,7 +15,7 @@ import { TbBrandOffice } from "react-icons/tb";
 const Skills: React.FC = () => {
   return (
     <div
-      className="flex justify-center items-center gap-4 flex-wrap opacity-70 p-10 sm:p-2 w-[90%]"
+      className="flex justify-center items-center gap-4 flex-wrap opacity-70 p-10 sm:p-2 w-[90%] h-full"
       id="skills"
     >
       <div className="p1 border border-blue-400 rounded text-[7rem] p-5 xs:text-[4rem]">

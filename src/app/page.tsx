@@ -8,7 +8,7 @@ const Page: React.FC = () => {
       <div className="h-screen">
         <Home />
       </div>
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
         <Skills />
       </div>
     </>
