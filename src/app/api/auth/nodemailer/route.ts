@@ -1,27 +1,36 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Ensure environment variables are defined
-if (!process.env.EMAIL || !process.env.PASS) {
-  throw new Error("Missing required environment variables: USER, PASS, EMAIL");
-}
-
 export const POST = async (req: NextRequest) => {
-  const { name, email, message } = await req.json();
-
   try {
+    const { name, email, message } = await req.json();
+
+    if (!name || !email || !message) {
+      return new NextResponse(
+        JSON.stringify({
+          success: false,
+          message: "All fields are required",
+          status: 400,
+        }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true, // Use `true` for port 465, `false` for all other ports
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
       },
     });
 
-    const info = await transporter.sendMail({
-      from: `Your portfolio contact <${email}>`, // sender address
+    await transporter.sendMail({
+      from: `Your portfolio contact <${process.env.EMAIL}>`, // sender address
       to: process.env.EMAIL, // list of receivers
       subject: "Hello ✔", // Subject line
       text: message, // plain text body
