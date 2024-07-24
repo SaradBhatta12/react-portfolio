@@ -54,7 +54,7 @@ const Experience: React.FC = () => {
             </li>
           ))}
         </div>
-        <div className="right bg-[#436581] w-full h-[20rem] p-3 rounded">
+        <div className="right bg-[#436581] w-full h-[20rem] sm:h-full  md:h-full lg:h-full xs:h-full p-3 rounded">
           {experiences.map(
             (exp, index) =>
               activeItem === exp.company && (

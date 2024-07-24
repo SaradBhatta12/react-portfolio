@@ -2,39 +2,44 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import Loading from "./sub-components/Loading";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    setTimeout(() => {
-      toast.success("successfully send message to sarad");
-    }, 4000);
+    setLoading(true);
 
-    setName("");
-    setEmail("");
-    setMessage("");
     try {
-      let response = await axios.get("https://server-ten-bay.vercel.app/");
-      console.log(response);
-
-      await axios.post("https://server-ten-bay.vercel.app/", {
+      const res = await axios.post("/api/auth/nodemailer", {
         name,
         email,
         message,
       });
 
-      console.log("Form submitted successfully");
+      if (res.data.success === "false") {
+        toast.error("Something went wrong, please try again later.");
+      } else {
+        toast.success("Message sent successfully.");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
+      toast.error("An error occurred, please try again.");
+    } finally {
+      setLoading(false);
+      setName("");
+      setEmail("");
+      setMessage("");
     }
   };
 
   return (
     <div className="flex flex-col gap-10">
+      {loading && <Loading />}
       <h1 className="heading text-3xl font-extrabold opacity-70">
         Get In Touch <span className="bg-slate-200 p-4 rounded-[50%]">📞</span>
       </h1>
@@ -49,7 +54,7 @@ const Contact: React.FC = () => {
             value={name}
           />
           <input
-            type="text"
+            type="email"
             placeholder="Example@example.com"
             className="bg-transparent p-3 text-blue-400 border border-blue-500 outline-dotted outline-blue-700 rounded"
             name="email"
@@ -67,6 +72,7 @@ const Contact: React.FC = () => {
           <button
             type="submit"
             className="border border-none outline-double p-2 bg-blue-300 text-blue-800 rounded"
+            disabled={loading}
           >
             Send Enquiry
           </button>
