@@ -6,7 +6,6 @@ import Navbar from "./components/Navbar";
 import NextTopLoader from "nextjs-toploader";
 import Cursor from "./components/sub-components/Cursor";
 import Copyright from "./components/sub-components/Copyright";
-
 export const metadata: Metadata = {
   title: "portfolio --sarad",
   description: "developed by sarad",

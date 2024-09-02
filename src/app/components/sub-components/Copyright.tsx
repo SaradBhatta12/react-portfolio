@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Copyright = () => {
   return (
@@ -8,4 +8,4 @@ const Copyright = () => {
   );
 };
 
-export default Copyright;
+export default memo(Copyright);

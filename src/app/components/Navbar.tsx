@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { AiOutlineDollar } from "react-icons/ai";
 import { BiMenu } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
@@ -106,16 +106,28 @@ const Navbar: React.FC = () => {
         animate={menuOpen ? "open" : "closed"}
       >
         <div className="links flex gap-5 items-center flex-col text-3xl opacity-70 mt-6">
-          <motion.div variants={linkVariants} whileHover="hover">
+          <motion.div
+            variants={linkVariants}
+            className=" font-normal text-xl hover:text-3xl duration-200 font-serif uppercase"
+          >
             <Link href={"/"}>About</Link>
           </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover">
+          <motion.div
+            variants={linkVariants}
+            className=" font-normal text-xl hover:text-3xl duration-200 font-serif uppercase"
+          >
             <Link href={"/projects"}>Projects</Link>
           </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover">
+          <motion.div
+            variants={linkVariants}
+            className=" font-normal text-xl hover:text-3xl duration-200 font-serif uppercase"
+          >
             <Link href={"/exprience"}>Exprience</Link>
           </motion.div>
-          <motion.div variants={linkVariants} whileHover="hover">
+          <motion.div
+            variants={linkVariants}
+            className=" font-normal text-xl hover:text-3xl duration-200 font-serif uppercase"
+          >
             <Link href={"/contacts"}>Contacts</Link>
           </motion.div>
 
@@ -129,4 +141,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./components/Home";
 import Skills from "./components/sub-components/Skills";
+import { memo } from "react";
 
 const Page: React.FC = () => {
   return (
@@ -15,4 +16,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default memo(Page);

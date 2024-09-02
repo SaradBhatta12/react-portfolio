@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { memo } from "react";
 import project from "./project.json";
 
 interface ProjectData {
@@ -61,4 +61,4 @@ const Card: React.FC<ProjectData> = (props) => {
   );
 };
 
-export default Page;
+export default memo(Page);

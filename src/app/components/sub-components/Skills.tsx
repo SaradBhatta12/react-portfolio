@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { BiLogoReact } from "react-icons/bi";
 import { RiNextjsLine } from "react-icons/ri";
 import { SiExpress } from "react-icons/si";
@@ -58,4 +58,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default memo(Skills);

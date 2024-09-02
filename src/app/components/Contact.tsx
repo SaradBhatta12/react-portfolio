@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "./sub-components/Loading";
@@ -83,4 +83,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);

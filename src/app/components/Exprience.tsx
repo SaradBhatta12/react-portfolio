@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { ImBriefcase } from "react-icons/im";
 import Link from "next/link";
 
@@ -100,4 +100,4 @@ const ExperienceComponent: React.FC<ExperienceProps> = ({
   );
 };
 
-export default Experience;
+export default memo(Experience);
