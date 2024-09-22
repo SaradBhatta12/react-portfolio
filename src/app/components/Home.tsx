@@ -2,7 +2,6 @@
 
 import React, { memo } from "react";
 import Typewriter from "typewriter-effect";
-import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
 
 const Home: React.FC = () => {
   const handleScroll = () => {
@@ -47,7 +46,7 @@ const Home: React.FC = () => {
         <button
           id="resume"
           className="outline-none bg-transparent border border-blue-300 p-2 mt-4 w-[200px]"
-          onClick={() => (location.href = "/assets/Sarad_Bhatt_Resume.pdf")}
+          onClick={() => (location.href = "/assets/resume_main.pdf")}
         >
           Check out my resume
         </button>

@@ -1,9 +1,7 @@
-import { BsGithub } from "react-icons/bs";
-import { FaLinkedin } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import { memo } from "react";
+import { BsGithub, BsInstagram } from "react-icons/bs";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
 
 const IconPack = () => {
   return (
@@ -13,17 +11,26 @@ const IconPack = () => {
           {" "}
           <BsGithub />
         </Link>
-        <Link href={""} className=" text-cyan-300 no-underline">
+        <Link
+          href={"https://www.linkedin.com/in/sarad-bhatt-89070b281/"}
+          className=" text-cyan-300 no-underline"
+        >
           {" "}
           <FaLinkedin />
         </Link>
-        <Link href={""} className=" text-cyan-300 no-underline">
+        <Link
+          href={"https://www.facebook.com/profile.php?id=100069794144427"}
+          className=" text-cyan-300 no-underline"
+        >
           {" "}
           <FaFacebook />
         </Link>
-        <Link href={""} className=" text-cyan-300 no-underline">
+        <Link
+          href={"https://www.instagram.com/sarad984046/"}
+          className=" text-cyan-300 no-underline"
+        >
           {" "}
-          <FaTwitter />
+          <BsInstagram />
         </Link>
       </div>
     </div>
