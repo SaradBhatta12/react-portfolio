@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { memo } from "react";
 import Typewriter from "typewriter-effect";
 
@@ -43,13 +44,14 @@ const Home: React.FC = () => {
           programming languages with their technology and operations related to
           the computer.
         </p>
-        <button
-          id="resume"
-          className="outline-none bg-transparent border border-blue-300 p-2 mt-4 w-[200px]"
-          onClick={() => (location.href = "/assets/resume_main.pdf")}
-        >
-          Check out my resume
-        </button>
+        <Link href={"https://drive.google.com/file/d/1X6Q6kkExryYQK2xvvuinsUYg-DszfRwb/view?usp=drive_link"}>
+          <button
+            id="resume"
+            className="outline-none bg-transparent border border-blue-300 p-2 mt-4 w-[200px]"
+          >
+            Check out my resume
+          </button>
+        </Link>
       </div>
       <div
         className="arrow fixed text-6xl text-blue-300 bottom-2 left-[50%] opacity-50 cursor-pointer"
