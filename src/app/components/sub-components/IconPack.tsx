@@ -8,7 +8,7 @@ const IconPack = () => {
     <div className="iconpack flex flex-col w-[40px] fixed h-[30%] items-center justify-center left-0 bottom-4 z-20 opacity-50 bg-slate-500 pt-4 pb-4">
       <div className="flex gap-5 text-[14px] flex-col items-center">
         <Link href={""} className=" text-cyan-300 no-underline">
-          {" "}
+          {"https://github.com/SaradBhatta12"}
           <BsGithub />
         </Link>
         <Link
