@@ -44,7 +44,11 @@ const Home: React.FC = () => {
           programming languages with their technology and operations related to
           the computer.
         </p>
+<<<<<<< HEAD
         <Link href={"https://drive.google.com/file/d/16X6xvfd2JqSHpL-wXWeIG2N83rqcoswN/view?usp=drive_link"}>
+=======
+        <Link href={"https://drive.google.com/file/d/1STh3NVQR7GezoZZMgiKYJBOGH78Dsv29/view?usp=sharing"}>
+>>>>>>> b9b8e6c (resume update)
           <button
             id="resume"
             className="outline-none bg-transparent border border-blue-300 p-2 mt-4 w-[200px]"
