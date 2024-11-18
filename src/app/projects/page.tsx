@@ -34,6 +34,7 @@ const Page: React.FC = () => {
   );
 };
 
+// Explicitly setting displayName for the Card component
 const Card: React.FC<ProjectData> = memo((props) => {
   const handleNavigation = (url: string) => {
     window.open(url, "_blank");
@@ -42,7 +43,6 @@ const Card: React.FC<ProjectData> = memo((props) => {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white">
       <div className="relative w-full h-48">
-        {/* Using the Next.js Image component */}
         <Image
           src={props.imageUrl}
           alt={props.title}
@@ -50,7 +50,7 @@ const Card: React.FC<ProjectData> = memo((props) => {
           objectFit="cover"
           className="rounded-t-lg"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = "/fallback-image.jpg"; // Use a fallback image
+            (e.target as HTMLImageElement).src = "/fallback-image.jpg";
           }}
         />
       </div>
@@ -75,5 +75,8 @@ const Card: React.FC<ProjectData> = memo((props) => {
     </div>
   );
 });
+
+// Adding displayName to Card component
+Card.displayName = "Card";
 
 export default memo(Page);
