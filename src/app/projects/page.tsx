@@ -1,6 +1,7 @@
 "use client";
 import React, { memo, useCallback } from "react";
 import project from "./project.json";
+import Image from "next/image"; // Importing Image component from Next.js
 
 interface ProjectData {
   imageUrl: string;
@@ -39,16 +40,20 @@ const Card: React.FC<ProjectData> = memo((props) => {
   };
 
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white ">
-      <img
-        className="w-full h-48 object-cover lazy-load"
-        src={props.imageUrl}
-        alt={props.title}
-        loading="lazy" // Lazy load the image
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = "/fallback-image.jpg"; // Use a fallback image
-        }}
-      />
+    <div className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white">
+      <div className="relative w-full h-48">
+        {/* Using the Next.js Image component */}
+        <Image
+          src={props.imageUrl}
+          alt={props.title}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-t-lg"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/fallback-image.jpg"; // Use a fallback image
+          }}
+        />
+      </div>
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2">{props.title}</h2>
         <p className="text-gray-300 text-base">{props.description}</p>
