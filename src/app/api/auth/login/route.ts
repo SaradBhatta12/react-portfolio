@@ -64,7 +64,6 @@ export const POST = async (req: NextRequest) => {
       profile: "",
       intro: "",
       resume: "",
-      skill: "",
     },
   });
 
