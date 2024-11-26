@@ -59,38 +59,42 @@ export const POST = async (req: NextRequest) => {
   }
 };
 
-export const GET = async () => {
+export const DELETE = async (req: NextRequest) => {
   try {
-    await connectDb();
-    const isAdmin = await getIdfromToken();
-    if (!isAdmin) {
+    const Userid = await getIdfromToken();
+    if (!Userid) {
       return NextResponse.json({
-        message: "Unauthorized",
+        message: "You are not authorized to delete this project",
         status: 401,
         success: false,
       });
     }
 
-    const admin = await prisma.admin.findUnique({
-      where: { email: isAdmin },
+    const { Projectid } = await req.json(); // Parse JSON body
+    if (!Projectid || typeof Projectid !== "number") {
+      return NextResponse.json({
+        message: "Valid Project ID is required",
+        status: 400,
+        success: false,
+      });
+    }
+
+    console.log("Project ID:", Projectid);
+
+    const project = await prisma.project.delete({
+      where: {
+        id: Projectid,
+      },
     });
-    console.log(admin);
 
-    if (!admin) {
-      return NextResponse.json({
-        message: "Unauthorized",
-        status: 401,
-        success: false,
-      });
-    }
-    const allProjects = await prisma.project.findMany();
     return NextResponse.json({
-      message: "Successfully fetched all projects",
+      message: "Successfully deleted project",
       status: 200,
       success: true,
-      allProjects,
+      project,
     });
   } catch (error) {
+    console.error("Error deleting project:", error);
     return NextResponse.json({
       message: "Internal server error",
       status: 500,

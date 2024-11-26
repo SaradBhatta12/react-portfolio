@@ -121,22 +121,3 @@ export const PUT = async (req: NextRequest) => {
     newUser,
   });
 };
-
-export const GET = async () => {
-  // make a loogut functionlaity
-  const email = await getIdfromToken();
-  if (!email || typeof email !== "string") {
-    return NextResponse.json({
-      message: "Already logged out",
-      status: 400,
-      success: false,
-    });
-  }
-  //delete token
-  cookies().delete("admin");
-  return NextResponse.json({
-    message: "Successfully logged out",
-    status: 200,
-    success: true,
-  });
-};

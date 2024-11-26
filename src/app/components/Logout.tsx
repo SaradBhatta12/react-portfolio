@@ -12,7 +12,7 @@ const Logout = () => {
     if (!isConfirmed) return;
 
     try {
-      const response = await axios.get("/api/auth/login"); // Assuming the logout endpoint is `/api/auth/logout`
+      const response = await axios.get("/api/auth/logout"); // Assuming the logout endpoint is `/api/auth/logout`
 
       if (response.status === 200) {
         toast.success(response.data.message); // Show success message
