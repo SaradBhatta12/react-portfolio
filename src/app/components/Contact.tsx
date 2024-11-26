@@ -1,6 +1,6 @@
 "use client";
-import React, { memo, useState } from "react";
 import axios from "axios";
+import React, { memo, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "./sub-components/Loading";
 
@@ -49,14 +49,16 @@ const Contact: React.FC = () => {
             type="text"
             placeholder="John Deno"
             name="name"
-            className="bg-transparent p-3 text-blue-400 border border-blue-500 outline-dotted outline-blue-700 rounded"
+            className="bg-transparent p-3 text-blue-400 border border-blue-500  rounded"
+            required
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
           <input
             type="email"
             placeholder="Example@example.com"
-            className="bg-transparent p-3 text-blue-400 border border-blue-500 outline-dotted outline-blue-700 rounded"
+            className="bg-transparent p-3 text-blue-400 border border-blue-500  rounded"
+            required
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
@@ -65,7 +67,8 @@ const Contact: React.FC = () => {
             name="message"
             id="message"
             placeholder="Help me please"
-            className="bg-transparent p-2 border border-blue-500 outline-dotted outline-blue-700 rounded"
+            className="bg-transparent p-2 border border-blue-500  rounded"
+            required
             onChange={(e) => setMessage(e.target.value)}
             value={message}
           />

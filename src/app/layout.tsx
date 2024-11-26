@@ -1,31 +1,44 @@
-import type { Metadata } from "next";
-import IconPack from "./components/sub-components/IconPack";
-import GmailPack from "./components/sub-components/GmailPack";
-import "./globals.css";
-import Navbar from "./components/Navbar";
+"use client";
+
+import { usePathname } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
-import Cursor from "./components/sub-components/Cursor";
-import Copyright from "./components/sub-components/Copyright";
-export const metadata: Metadata = {
-  title: "portfolio --sarad",
-  description: "developed by sarad",
-};
+import Navbar from "./components/Navbar";
+import GmailPack from "./components/sub-components/GmailPack";
+import IconPack from "./components/sub-components/IconPack";
+import "./globals.css";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  // Paths where components should not render
+  const hiddenPaths = [
+    "/admin",
+    "/admin/add-projects",
+    "/admin/add-biodata",
+    "/login",
+  ];
+  const shouldShowComponents = !hiddenPaths.includes(pathname);
+
   return (
     <html lang="en">
       <body>
-        {/* <Cursor /> */}
         <NextTopLoader color="white" />
-        <Navbar />
+
+        {/* Render components conditionally */}
+        {shouldShowComponents && (
+          <>
+            <Navbar />
+            <GmailPack />
+            <IconPack />
+          </>
+        )}
+
+        {/* Main content */}
         {children}
-        <IconPack />
-        <GmailPack />
-        <Copyright />
       </body>
     </html>
   );
