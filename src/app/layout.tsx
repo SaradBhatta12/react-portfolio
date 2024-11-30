@@ -19,6 +19,7 @@ export default function RootLayout({
     "/admin",
     "/admin/add-projects",
     "/admin/add-biodata",
+    "/admin/add-exprience",
     "/login",
   ];
   const shouldShowComponents = !hiddenPaths.includes(pathname);
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NextTopLoader color="white" />
+        <NextTopLoader color="red" showSpinner={false} height={2} />
 
         {/* Render components conditionally */}
         {shouldShowComponents && (

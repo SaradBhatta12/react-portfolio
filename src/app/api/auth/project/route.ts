@@ -71,15 +71,6 @@ export const DELETE = async (req: NextRequest) => {
     }
 
     const { Projectid } = await req.json(); // Parse JSON body
-    if (!Projectid || typeof Projectid !== "number") {
-      return NextResponse.json({
-        message: "Valid Project ID is required",
-        status: 400,
-        success: false,
-      });
-    }
-
-    console.log("Project ID:", Projectid);
 
     const project = await prisma.project.delete({
       where: {

@@ -2,6 +2,7 @@ import { connectDb, prisma } from "@/utils/connectDB";
 import Image from "next/image";
 import { AiOutlineEdit } from "react-icons/ai";
 import Delete from "../components/Delete";
+import Experiences from "../components/Experiences";
 import Logout from "../components/Logout";
 
 await connectDb();
@@ -73,6 +74,9 @@ const AdminPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Experiences Sections */}
+      <Experiences />
     </div>
   );
 };

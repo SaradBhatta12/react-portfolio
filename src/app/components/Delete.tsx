@@ -2,11 +2,12 @@
 import { AiOutlineDelete } from "react-icons/ai";
 
 interface DeleteProps {
-  id: number; // Ensure id is a number
+  id: string; // Ensure id is a number
 }
 
 const Delete = ({ id }: DeleteProps) => {
   const handleDelete = async () => {
+    console.log(id);
     try {
       const response = await fetch(`/api/auth/project`, {
         method: "DELETE",

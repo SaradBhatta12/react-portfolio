@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FaDollarSign, FaProjectDiagram, FaUserPlus } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { IoBagAddSharp } from "react-icons/io5";
 export default function AdminLayout({
   children,
 }: {
@@ -82,6 +83,17 @@ const Sidebar = () => {
           <FaProjectDiagram size={20} className="min-w-[20px]" />
           <span className={`whitespace-nowrap ${!isOpen && " hidden"}`}>
             Add Projects
+          </span>
+        </Link>
+
+        <Link
+          href="/admin/add-exprience"
+          className="flex items-center gap-4 p-2 rounded-lg 
+            hover:bg-gray-700 transition-colors"
+        >
+          <IoBagAddSharp size={20} className="min-w-[20px]" />
+          <span className={`whitespace-nowrap ${!isOpen && " hidden"}`}>
+            Add Expriences
           </span>
         </Link>
       </nav>

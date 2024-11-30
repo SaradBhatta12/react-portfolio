@@ -1,72 +1,94 @@
 "use client";
 
-import React, { memo, useState } from "react";
-import { ImBriefcase } from "react-icons/im";
+import axios from "axios";
 import Link from "next/link";
+import React, { memo, useCallback, useEffect, useState } from "react";
+import { ImBriefcase } from "react-icons/im";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loading from "../loading";
 
 interface ExperienceProps {
-  jobTitle: string;
-  company: string;
-  duration: string;
-  tasks: string[];
+  position: string;
+  companyName: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+  id: string;
 }
 
 const Experience: React.FC = () => {
-  const [activeItem, setActiveItem] = useState("Sofsee Tech.");
+  const [activeItem, setActiveItem] = useState<string>("");
+  const [experiences, setExperiences] = useState<ExperienceProps[]>([]);
+  console.log(experiences);
 
-  const experiences = [
-    {
-      company: "Sofsee Tech.",
-      jobTitle: "Web Developer Intern",
-      duration: "2024 January - 2024 May",
-      tasks: [
-        "Enhanced my front-end development skills by creating responsive and user-friendly web pages with HTML, CSS, and JavaScript.",
-        "Gained valuable experience developing and maintaining a variety of websites using the MERN stack (MongoDB,Express, React, Node.js).",
-        "Contributed to the development of interactive features using JavaScript frameworks like React and animation library like GSAP",
-      ],
-    },
-    {
-      company: "NeemInfotech.",
-      jobTitle: "Frontend Developer",
-      duration: "2024 May - 2024 Present",
-      tasks: [
-        "Optimized application performance and collaborated with cross-functional teams.",
-      ],
-    },
-  ];
+  const [loading, setLoading] = useState(false);
+  console.log(experiences);
 
+  // Fetch experiences
+  const fetchExperiences = useCallback(async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("/api/auth/exprience");
+      const data = response.data.expriences;
+      setExperiences(data);
+      if (data.length > 0) {
+        setActiveItem(data[0].companyName); // Default active item
+      }
+    } catch (error: any) {
+      toast.error(
+        error.response?.data?.message || "Error fetching experiences"
+      );
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchExperiences();
+  }, [fetchExperiences]);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
-    <div className="mt-[80px] p-10">
-      <h1 className="text-4xl flex gap-3 font-extrabold justify-center items-center opacity-50">
-        <ImBriefcase /> &nbsp;Experience
+    <div className="mt-20 p-10">
+      <h1 className="text-4xl font-extrabold flex gap-3 justify-center items-center opacity-50">
+        <ImBriefcase />
+        Experience
       </h1>
-      <div className="experience m-20 sm:m-2 flex gap-5 sm:flex-wrap">
-        <div className="left flex flex-col w-[16rem] gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:items-center">
-          {experiences.map((exp, index) => (
+      <div className="experience flex flex-wrap gap-5 m-10">
+        <div className="left flex flex-col w-64 gap-2">
+          {experiences?.map((exp) => (
             <li
-              key={index}
-              className={`list-none p-2 bg-[#1d4d75] hover:bg-[#31648d] cursor-pointer text-slate-300 ${
-                activeItem === exp.company ? "bg-[#31648d]" : ""
+              key={exp.id}
+              className={`list-none p-2 bg-blue-800 hover:bg-blue-700 cursor-pointer text-white rounded ${
+                activeItem === exp.companyName ? "bg-blue-600" : ""
               }`}
-              onClick={() => setActiveItem(exp.company)}
+              onClick={() => setActiveItem(exp.companyName)}
             >
-              {exp.company}
+              {exp.companyName}
             </li>
           ))}
         </div>
-        <div className="right bg-[#436581] w-full h-[20rem] sm:h-full  md:h-full lg:h-full xs:h-full p-3 rounded">
-          {experiences.map(
-            (exp, index) =>
-              activeItem === exp.company && (
-                <ExperienceComponent
-                  key={index}
-                  jobTitle={exp.jobTitle}
-                  company={exp.company}
-                  duration={exp.duration}
-                  tasks={exp.tasks}
-                />
-              )
-          )}
+        <div
+          className={`right ${
+            experiences.length > 0 ? "bg-blue-900" : ""
+          } w-full p-5 rounded text-white`}
+        >
+          {experiences
+            ?.filter((exp) => exp.companyName === activeItem)
+            ?.map((exp) => (
+              <ExperienceComponent
+                key={exp.id}
+                position={exp.position}
+                companyName={exp.companyName}
+                startDate={exp.startDate}
+                endDate={exp.endDate}
+                description={exp.description}
+                id={""}
+              />
+            ))}
         </div>
       </div>
     </div>
@@ -74,28 +96,38 @@ const Experience: React.FC = () => {
 };
 
 const ExperienceComponent: React.FC<ExperienceProps> = ({
-  jobTitle,
-  company,
-  duration,
-  tasks,
+  position,
+  companyName,
+  startDate,
+  endDate,
+  description,
 }) => {
+  // Split description by "•" and trim any extra spaces.
+  const descriptionItems = description.split("•").map((item) => item.trim());
+
   return (
     <div className="job">
-      <h1 className="title-job text-xl">
-        🌐 {jobTitle}{" "}
+      <h2 className="text-2xl font-bold">
+        🌐 {position} @{" "}
         <Link
-          href={`/${company.replace(/\s+/g, "").toLowerCase()}.com`}
-          className="decoration-white"
+          href={`${companyName.replace(/\s+/g, "").toLowerCase()}`}
+          className=" hover:text-blue-400"
         >
-          @{company}
+          {companyName}
         </Link>
-      </h1>
-      <h4 className="date-duration ml-2 text-[13px]">{duration}</h4>
-      <h3 className="task opacity-80">
-        {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
+      </h2>
+      <p className="text-sm mt-2">
+        {startDate} - {endDate}
+      </p>
+
+      {/* Render the description as a list */}
+      <div className="mt-4">
+        {descriptionItems.map((item, index) => (
+          <p key={index} className="mb-2">
+            • {item}
+          </p>
         ))}
-      </h3>
+      </div>
     </div>
   );
 };

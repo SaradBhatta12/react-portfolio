@@ -4,9 +4,10 @@ import React from "react";
 import Type from "./Type";
 
 await connectDb();
+
 const bio = await prisma.admin.findFirst({
   where: {
-    id: 1,
+    email: process.env.EMAIL,
   },
 });
 const Home: React.FC = () => {
