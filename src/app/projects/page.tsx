@@ -60,13 +60,7 @@ const Card: React.FC<ProjectData> = ({
   return (
     <div className="max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white">
       <div className="relative w-full h-48">
-        <Image
-          src={imageUrl}
-          alt={title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-lg"
-        />
+        <Image src={imageUrl} alt={title} fill className="rounded-t-lg " />
       </div>
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2 text-white">{title}</h2>
