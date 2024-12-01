@@ -1,8 +1,8 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/navigation"; // For redirection
-import toast from "react-hot-toast";
 import { AiOutlineLogout } from "react-icons/ai";
+import { toast, ToastContainer } from "react-toastify";
 
 const Logout = () => {
   const router = useRouter();
@@ -25,13 +25,16 @@ const Logout = () => {
   };
 
   return (
-    <button
-      onClick={logoutHandler}
-      className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white text-sm font-semibold rounded-md hover:bg-red-600"
-    >
-      <AiOutlineLogout className="text-lg" />
-      Logout
-    </button>
+    <>
+      <ToastContainer />
+      <button
+        onClick={logoutHandler}
+        className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white text-sm font-semibold rounded-md hover:bg-red-600"
+      >
+        <AiOutlineLogout className="text-lg" />
+        Logout
+      </button>
+    </>
   );
 };
 

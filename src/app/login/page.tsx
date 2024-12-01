@@ -3,7 +3,8 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { toast, ToastContainer } from "react-toastify";
+
 import { AiOutlineLock, AiOutlineMail } from "react-icons/ai";
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Loading from "../loading";
@@ -28,12 +29,10 @@ const LoginPage: React.FC = () => {
         password,
       });
       if (res.data.success) {
+        toast.success(res.data.message || "Login successful");
         setTimeout(() => {
-          toast.success(res.data.message || "Login successful");
-        }, 2000);
-        setTimeout(() => {
-          router.push("/admin");
-        }, 2000);
+          router.push("/");
+        }, 1000);
       } else {
         toast.error(
           res.data.message || res.data.error.message || "Login failed"
@@ -52,7 +51,7 @@ const LoginPage: React.FC = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center ">
-      <Toaster />
+      <ToastContainer />
       <div
         className="bg-white shadow-md rounded-lg p-6 sm:p-4 sm:w-[19rem] sm:mr-8 w-full max-w-md"
         style={{ marginLeft: "2rem", marginTop: "1rem" }}

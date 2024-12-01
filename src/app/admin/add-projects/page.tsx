@@ -78,7 +78,7 @@ const ProjectForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-[#113b5d]">
+    <div className="flex justify-center items-center min-h-screen bg-[#113b5d] sm:w-[18rem] sm:ml-20">
       <Toaster />
       <form
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"

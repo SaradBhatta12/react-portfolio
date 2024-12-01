@@ -2,11 +2,11 @@
 
 import { usePathname } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
+import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./components/Navbar";
 import GmailPack from "./components/sub-components/GmailPack";
 import IconPack from "./components/sub-components/IconPack";
 import "./globals.css";
-
 export default function RootLayout({
   children,
 }: Readonly<{

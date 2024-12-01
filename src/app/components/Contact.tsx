@@ -38,12 +38,12 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 border-2 border-blue-500 shadow-blue-600 p-10 rounded sm:w-[18rem]">
       {loading && <Loading />}
-      <h1 className="heading text-3xl font-extrabold opacity-70">
-        Get In Touch <span className="bg-slate-200 p-4 rounded-[50%]">📞</span>
+      <h1 className="heading text-3xl font-extrabold opacity- sm:text-xl">
+        Get In Touch <span className="p-4 ">📞</span>
       </h1>
-      <div className="form flex justify-center items-center">
+      <div className="form flex justify-center items-center ">
         <form className="flex flex-col gap-3" onSubmit={submitHandler}>
           <input
             type="text"

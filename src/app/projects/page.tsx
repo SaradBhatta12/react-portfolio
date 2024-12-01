@@ -18,8 +18,6 @@ const projects = await prisma.project.findMany({
   },
 });
 
-console.log(projects);
-
 const Page: React.FC = () => {
   if (projects.length <= 0) {
     return (
