@@ -16,7 +16,7 @@ const Logout = () => {
 
       if (response.status === 200) {
         toast.success(response.data.message); // Show success message
-        router.push("/login"); // Redirect to login page after successful logout
+        router.push("/"); // Redirect to login page after successful logout
       }
     } catch (error) {
       toast.error("An error occurred while logging out. Please try again.");

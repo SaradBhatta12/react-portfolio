@@ -31,7 +31,7 @@ const LoginPage: React.FC = () => {
       if (res.data.success) {
         toast.success(res.data.message || "Login successful");
         setTimeout(() => {
-          router.push("/");
+          router.push("/admin");
         }, 1000);
       } else {
         toast.error(
