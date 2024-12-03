@@ -1,11 +1,10 @@
 "use client";
-import React, { useState, useEffect, useRef, memo } from "react";
-import { AiOutlineDollar } from "react-icons/ai";
-import { BiMenu } from "react-icons/bi";
-import { CgClose } from "react-icons/cg";
 import { motion } from "framer-motion";
-import { BiLogIn } from "react-icons/bi";
 import Link from "next/link";
+import React, { memo, useEffect, useRef, useState } from "react";
+import { AiOutlineDollar } from "react-icons/ai";
+import { BiLogIn, BiMenu } from "react-icons/bi";
+import { CgClose } from "react-icons/cg";
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -80,7 +79,7 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <div className="fixed left-0 top-0 flex justify-between items-center w-full h-[70px] p-4">
+      <div className="z-20 fixed left-0 top-0 flex justify-between items-center w-full h-[70px] p-4">
         <div className="logo">
           <AiOutlineDollar
             className="text-5xl font-extrabold text-blue-300 cursor-pointer "

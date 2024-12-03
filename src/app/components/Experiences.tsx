@@ -45,7 +45,6 @@ const Experiences = () => {
         const res = await axios.get("/api/auth/exprience");
         setExp(res.data.expriences);
       } catch (error) {
-        console.log(error);
       } finally {
         setLoading(false);
       }
@@ -59,7 +58,7 @@ const Experiences = () => {
   return (
     <div className="w-full mt-8">
       <ToastContainer />
-      <h3 className="text-lg font-bold text-center mb-4">Experiences</h3>
+      <h3 className="text-lg font-bold text-center mb-20 mt-10">Experiences</h3>
       <div className="flex flex-wrap justify-center gap-6">
         {!exp ? (
           <div className="notfound w-full text-center rounded">

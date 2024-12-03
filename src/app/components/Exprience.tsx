@@ -20,10 +20,8 @@ interface ExperienceProps {
 const Experience: React.FC = () => {
   const [activeItem, setActiveItem] = useState<string>("");
   const [experiences, setExperiences] = useState<ExperienceProps[]>([]);
-  console.log(experiences);
 
   const [loading, setLoading] = useState(false);
-  console.log(experiences);
 
   // Fetch experiences
   const fetchExperiences = useCallback(async () => {

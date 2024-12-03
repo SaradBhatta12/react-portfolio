@@ -1,5 +1,6 @@
 import { connectDb, prisma } from "@/utils/connectDB";
 import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineEdit } from "react-icons/ai";
 import Delete from "../components/Delete";
 import Experiences from "../components/Experiences";
@@ -48,30 +49,41 @@ const AdminPage = () => {
 
         {/* Action Buttons */}
         <div className="mt-6 flex justify-center gap-4 flex-wrap">
-          <button className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600">
-            <AiOutlineEdit className="text-lg" />
-            Edit Profile
-          </button>
+          <Link href={"/admin/add-biodata"}>
+            <button className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white text-sm font-semibold rounded hover:bg-blue-600">
+              <AiOutlineEdit className="text-lg" />
+              Edit Profile
+            </button>
+          </Link>
           <Logout />
         </div>
       </div>
 
       {/* Projects Section */}
       <div className="w-full mt-8">
-        <h3 className="text-lg font-bold text-center mb-4">Projects</h3>
+        <h3 className="text-lg font-bold text-center mb-10 p-10">Projects</h3>
         <div className="flex flex-wrap justify-center gap-6">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-gray-800 p-4 rounded-md shadow-lg flex flex-col w-full max-w-xs sm:max-w-sm"
-            >
-              <h4 className="text-lg font-semibold">{project.title}</h4>
-              <p className="text-sm text-gray-400 mt-2">
-                {project.description}
-              </p>
-              <Delete id={project.id} />
-            </div>
-          ))}
+          {projects.map((project) => {
+            // Split the description into an array of points using a recognizable delimiter (adjust if needed)
+            const desc = project.description.split("•").filter(Boolean);
+
+            return (
+              <div
+                key={project.id}
+                className="bg-gray-800 p-4 rounded-md shadow-lg flex flex-col w-full max-w-xs sm:max-w-sm"
+              >
+                <h4 className="text-lg font-semibold text-white">
+                  {project.title}
+                </h4>
+                <ul className="list-disc list-inside text-sm text-gray-400 mt-2">
+                  {desc.map((point, index) => (
+                    <li key={index}>{point.trim()}</li>
+                  ))}
+                </ul>
+                <Delete id={project.id} />
+              </div>
+            );
+          })}
         </div>
       </div>
 

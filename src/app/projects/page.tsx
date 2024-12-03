@@ -6,7 +6,7 @@ import { FaGithub, FaLink } from "react-icons/fa"; // Importing icons from react
 interface ProjectData {
   imageUrl: string;
   title: string;
-  description: string;
+  description: string[];
   live: string;
   github: string;
 }
@@ -17,7 +17,6 @@ const projects = await prisma.project.findMany({
     createdAt: "desc",
   },
 });
-console.log(projects);
 const Page: React.FC = () => {
   if (projects.length <= 0) {
     return (
@@ -30,16 +29,19 @@ const Page: React.FC = () => {
   return (
     <div className="mt-[80px] p-8">
       <div className="flex flex-wrap justify-center gap-6">
-        {projects.map((proj) => (
-          <Card
-            key={proj.title} // Use a unique property for the key
-            imageUrl={proj.image}
-            title={proj.title}
-            description={proj.description}
-            live={proj.live}
-            github={proj.github}
-          />
-        ))}
+        {projects.map((proj) => {
+          const desc = proj.description.split("•").filter(Boolean);
+          return (
+            <Card
+              key={proj.title} // Use a unique property for the key
+              imageUrl={proj.image}
+              title={proj.title}
+              description={desc}
+              live={proj.live}
+              github={proj.github}
+            />
+          );
+        })}
       </div>
     </div>
   );
@@ -58,18 +60,29 @@ const Card: React.FC<ProjectData> = ({
   };
 
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white">
+    <div className=" z-10 max-w-sm rounded-lg overflow-hidden shadow-lg border border-gray-700 hover:shadow-xl transition-all cursor-pointer hover:border hover:border-white">
       <div className="relative w-full h-48">
-        <Image src={imageUrl} alt={title} fill className="rounded-t-lg " />
+        <Image
+          src={imageUrl}
+          alt={title}
+          fill
+          className="rounded-t-lg "
+          priority={true}
+        />
       </div>
       <div className="px-6 py-4">
         <h2 className="font-bold text-xl mb-2 text-white">{title}</h2>
-        <p className="text-gray-300 text-base">{description.slice(0, 50)}</p>
+        {description.map((point, index) => (
+          <ul key={index} className="flex justify-center">
+            <p>→</p>
+            {point.trim()}
+          </ul>
+        ))}
       </div>
       <div className="px-6 py-4 flex justify-between gap-4">
         <Link href={live}>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center gap-2">
-            <FaLink /> Live View
+            <FaLink /> Live
           </button>
         </Link>
         <Link href={github}>

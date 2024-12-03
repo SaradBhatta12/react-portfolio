@@ -19,7 +19,6 @@ export const POST = async (req: NextRequest) => {
   });
 
   const adminId = admin?.id as string;
-  console.log(adminId);
   if (!isAdmin) {
     return NextResponse.json({
       success: false,

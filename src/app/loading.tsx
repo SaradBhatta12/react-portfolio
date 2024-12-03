@@ -1,7 +1,10 @@
-export default function Loading() {
-  // Or a custom loading skeleton component
+const Loading = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-transparant-100">
+    <div
+      className="absolute inset-0 flex items-center justify-center bg-transparent"
+      role="status"
+      aria-live="polite"
+    >
       <div className="loading-container">
         <div className="rect rect1"></div>
         <div className="rect rect2"></div>
@@ -11,4 +14,6 @@ export default function Loading() {
       </div>
     </div>
   );
-}
+};
+
+export default Loading;

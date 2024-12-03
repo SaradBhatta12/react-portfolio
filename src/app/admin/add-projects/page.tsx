@@ -38,7 +38,6 @@ const ProjectForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const data = new FormData();
     data.append("title", formData.title);
     data.append("description", formData.description);
@@ -46,7 +45,7 @@ const ProjectForm = () => {
     data.append("github", formData.github);
 
     if (imageFile) {
-      data.append("image", imageFile); // Append the file to the FormData object
+      data.append("image", imageFile);
     } else {
       alert("Please upload an image.");
       return;
@@ -58,12 +57,12 @@ const ProjectForm = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
       if (response.data.success) {
-        toast.success("Project create successfully");
+        toast.success("Project created successfully");
         router.push("/admin/add-projects");
       } else {
         toast.error("Failed to add project.");
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to add project.");
     } finally {
       setLoading(false);
@@ -81,17 +80,17 @@ const ProjectForm = () => {
     <div className="flex justify-center items-center min-h-screen bg-[#113b5d] sm:w-[18rem] sm:ml-20">
       <Toaster />
       <form
-        className="bg-white p-8 rounded-lg shadow-md w-full max-w-md"
+        className="bg-white p-6 sm:p-8 rounded-lg shadow-md w-full max-w-lg sm:max-w-md"
         onSubmit={handleSubmit}
         encType="multipart/form-data"
       >
-        <h2 className="text-2xl font-bold text-center text-[#113b5d] mb-6">
+        <h2 className="text-xl sm:text-2xl font-bold text-center text-[#113b5d] mb-6">
           Add New Project
         </h2>
 
         {/* Title Field */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2 sm:w-[18rem] sm:ml-20">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
             Title
           </label>
           <div className="flex items-center border border-gray-300 rounded-md px-3 py-2 bg-gray-50">
